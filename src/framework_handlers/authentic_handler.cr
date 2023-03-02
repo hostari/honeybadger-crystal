@@ -7,7 +7,7 @@ module Honeybadger
   class AuthenticHandler
     include HTTP::Handler
 
-    def initialize(*, @factory : Honeybadger::HttpPayload.class = Honeybadger::HttpPayload, @session_key : String = Authentic::ActionHelpers::SIGN_IN_KEY)
+    def initialize(*, @factory : Honeybadger::HttpPayload.class = Honeybadger::HttpPayload, @session_key : String = Authentic.settings.sign_in_key)
     end
 
     def call(context : HTTP::Server::Context)
