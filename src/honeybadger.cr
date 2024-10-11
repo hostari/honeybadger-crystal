@@ -2,7 +2,7 @@ require "./core_ext/*"
 require "./honeybadger/*"
 
 module Honeybadger
-  VERSION = "0.2.3"
+  VERSION = "1.0.0"
 
   alias ContextHash = Hash(String, String)
 
