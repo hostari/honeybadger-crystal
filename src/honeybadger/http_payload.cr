@@ -9,13 +9,15 @@ module Honeybadger
   # HTTP::Server request cycle.
   class HttpPayload < Payload
     # :inherit:
-    getter exception
+    def exception : Exception
+      @exception.not_nil!
+    end
 
     # The request in which the exception was triggered.
     getter http_request : HTTP::Request
 
-    def initialize(@exception : Exception, @http_request : HTTP::Request)
-      super(@exception)
+    def initialize(exception : Exception, @http_request : HTTP::Request)
+      super(exception)
     end
 
     # Renders the "request" stanza of the json payload.
